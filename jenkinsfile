@@ -4,6 +4,9 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = 'calculator_python'
         GITHUB_REPO_URL = 'https://github.com/saurabhv0903/SPE_miniproject.git'
+	OPTION = 1
+	NUMBER = 2
+	EXP = 3
     }
 
     stages {
@@ -20,7 +23,7 @@ pipeline {
         stage('Run Main Application') {
             steps {
                 script {
-                    sh "python3 calculator_main.py ${params.operation} ${params.value}"
+                    sh "python3 calculator_main.py ${OPTION} ${NUMBER} ${EXP}"
                 }
             }
         }
