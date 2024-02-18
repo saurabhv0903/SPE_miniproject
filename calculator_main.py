@@ -1,3 +1,4 @@
+import sys
 import math
 
 def square_root(x):
@@ -16,38 +17,32 @@ def power(x, b):
     return math.pow(x, b)
 
 def main():
-    choice = int(input("\nScientific Calculator Menu:\n"
-                       "1. Square Root (√x)\n"
-                       "2. Factorial (x!)\n"
-                       "3. Natural Logarithm (ln(x))\n"
-                       "4. Power Function (x^b)\n"
-                       "5. Exit\n"
-                       "Enter your choice: "))
+    if len(sys.argv) < 3:
+        print("Usage: python3 calculator_main.py <operation> <value>")
+        print("Operations:")
+        print("1. Square Root (√x): sqrt")
+        print("2. Factorial (x!): factorial")
+        print("3. Natural Logarithm (ln(x)): log")
+        print("4. Power Function (x^b): power")
+        sys.exit(1)
 
-    if choice == 1:
-        sqrt_input = float(input("Enter a number: "))
-        print(f"Square Root of {sqrt_input} is: {square_root(sqrt_input)}")
+    operation = sys.argv[1]
+    value = float(sys.argv[2])
 
-    elif choice == 2:
-        factorial_input = int(input("Enter a number: "))
-        print(f"Factorial of {factorial_input} is: {factorial(factorial_input)}")
-
-    elif choice == 3:
-        log_input = float(input("Enter a number: "))
-        print(f"Natural Logarithm of {log_input} is: {natural_log(log_input)}")
-
-    elif choice == 4:
-        base = float(input("Enter base (x): "))
-        exponent = float(input("Enter exponent (b): "))
-        print(f"{base} raised to the power {exponent} is: {power(base, exponent)}")
-
-    elif choice == 5:
-        print("Exiting...")
-
+    if operation == 'sqrt':
+        print("Square Root of", value, "is:", square_root(value))
+    elif operation == 'factorial':
+        print("Factorial of", value, "is:", factorial(int(value)))
+    elif operation == 'log':
+        print("Natural Logarithm of", value, "is:", natural_log(value))
+    elif operation == 'power':
+        if len(sys.argv) < 4:
+            print("Usage: python3 calculator_main.py power <base> <exponent>")
+            sys.exit(1)
+        exponent = float(sys.argv[3])
+        print(value, "raised to the power", exponent, "is:", power(value, exponent))
     else:
-        print("Invalid choice! Please enter a number between 1 and 5.")
-
+        print("Invalid operation!")
 
 if __name__ == "__main__":
     main()
-
