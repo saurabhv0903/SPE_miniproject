@@ -18,31 +18,31 @@ def power(x, b):
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python3 calculator_main.py <operation> <value>")
-        print("Operations:")
-        print("1. Square Root (√x): sqrt")
-        print("2. Factorial (x!): factorial")
-        print("3. Natural Logarithm (ln(x)): log")
-        print("4. Power Function (x^b): power")
+        print("Usage: python3 calculator_main.py <option> <value>")
+        print("Options:")
+        print("1. Square Root (√x)")
+        print("2. Factorial (x!)")
+        print("3. Natural Logarithm (ln(x))")
+        print("4. Power Function (x^b)")
         sys.exit(1)
 
-    operation = sys.argv[1]
+    option = int(sys.argv[1])
     value = float(sys.argv[2])
 
-    if operation == 'sqrt':
+    if option == 1:
         print("Square Root of", value, "is:", square_root(value))
-    elif operation == 'factorial':
+    elif option == 2:
         print("Factorial of", value, "is:", factorial(int(value)))
-    elif operation == 'log':
+    elif option == 3:
         print("Natural Logarithm of", value, "is:", natural_log(value))
-    elif operation == 'power':
+    elif option == 4:
         if len(sys.argv) < 4:
-            print("Usage: python3 calculator_main.py power <base> <exponent>")
+            print("Usage: python3 calculator_main.py 4 <base> <exponent>")
             sys.exit(1)
         exponent = float(sys.argv[3])
         print(value, "raised to the power", exponent, "is:", power(value, exponent))
     else:
-        print("Invalid operation!")
+        print("Invalid option!")
 
 if __name__ == "__main__":
     main()
