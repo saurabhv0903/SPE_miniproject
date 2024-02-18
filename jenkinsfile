@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = 'calculator_demo'
-        GITHUB_REPO_URL = 'https://github.com/saurabhv0903/calculator.git'
+        DOCKER_IMAGE_NAME = 'calculator_python'
+        GITHUB_REPO_URL = 'https://github.com/saurabhv0903/SPE_miniproject.git'
     }
 
     stages {
@@ -29,8 +29,8 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('', 'DockerHubCred') {
-                    sh 'docker tag calculator_demo saurabhv09/calculator_demo:latest'
-                    sh 'docker push saurabhv09/calculator_demo'
+                    sh 'docker tag calculator_python saurabhv09/calculator_python:latest'
+                    sh 'docker push saurabhv09/calculator_python'
                     }
                  }
             }
