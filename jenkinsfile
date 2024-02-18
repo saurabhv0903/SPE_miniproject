@@ -17,18 +17,19 @@ pipeline {
         }
 
 	
-	stage('Run Tests') {
-            steps {
-                script {
-                    sh 'python3 /app/calculator_test.py'
-                }
-            }
-        }
-
         stage('Run Main Application') {
             steps {
                 script {
                     sh 'python3 /app/calculator_main.py'
+                }
+            }
+        }
+
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh 'python3 /app/calculator_test.py'
                 }
             }
         }
