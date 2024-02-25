@@ -23,7 +23,7 @@ pipeline {
         stage('Run Main Application') {
             steps {
                 script {
-                    sh "python3 calculator_main.py ${OPTION} ${NUMBER} ${EXP}"
+                    sh "printf "1\n4\n3\n" | python3 calculator_main.py"
                 }
             }
         }
