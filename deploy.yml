@@ -15,7 +15,7 @@
         var: docker_pull_result
 
     - name: Stop and remove existing container if present and running
-      shell: docker stop scientific_calculator && docker rm scientific_calculator
+      shell: docker stop calculator_python && docker rm calculator_python
       ignore_errors: true
         
     - name: Start Docker service
