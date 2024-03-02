@@ -9,4 +9,5 @@ COPY calculator_main.py /app/calculator_main.py
 COPY calculator_test.py /app/calculator_test.py
 
 
-CMD printf "1\n4\n3\n" | python3 calculator_main.py
+# CMD printf "1\n4\n3\n" | python3 calculator_main.py
+CMD ["python3",  "calculator_main.py"]
