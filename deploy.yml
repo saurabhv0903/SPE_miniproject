@@ -13,6 +13,10 @@
     - name: Display Docker Pull Result
       debug:
         var: docker_pull_result
+
+    - name: Stop and remove existing container if present and running
+      shell: docker stop scientific_calculator && docker rm scientific_calculator
+      ignore_errors: true
         
     - name: Start Docker service
       service:
